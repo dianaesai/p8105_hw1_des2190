@@ -62,12 +62,11 @@ names(penguins)
 nrow(penguins)
 ncol(penguins)
 mean(penguins$flipper_length_mm, na.rm=TRUE)
+summary(penguins)
 
 ```
 
-The penguins dataset includes the 8 variables: "species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex", and "year". It includes 344 observations (rows), and, again 8 variables (columns). 
-
-the mean flipper length
+The penguins dataset includes the 8 variables: "species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex", and "year". It includes 344 observations (rows), and, again 8 variables (columns). The mean flipper length, once the missing values were removed, is 200.9152 mm. Values for "species" in this data set include "Adelie", "Chinstrap", and "Gentoo". Also, values for "island" include "Biscoe", "Dream", and "Torgersen". 
 
 
 ```{r}
@@ -79,7 +78,7 @@ penguins %>%
 ggsave("penguins_scatter_plot.pdf", height = 4, width = 6)
 ```
 
-Export your first scatterplot to your project directory using ggsave.
+
 
 
 
