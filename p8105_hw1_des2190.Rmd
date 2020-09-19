@@ -16,7 +16,7 @@ library(tidyverse)
 Create a data frame with the specified elements.
 
 ```{r}
-prob_df1 =
+prob1_df =
   tibble(
     samp = rnorm(10),
     samp_gt_0 = samp > 0,
@@ -43,5 +43,16 @@ as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
 
-I canc convert logical and factor to a numeric variable, but not character.
+I can convert logical and factor variables to numeric variables, but I can't do this for a character variable.
+
+```{r eval = FALSE}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
+```
+
+I can convert a logical variable to a numerica and then multiply it by the random sample, but I can't multiply factor variables by the random sample. However, I can convert the logical variable to a factor variable and then to numeric and then multiply by the random sample. However, this gives me a different result compared to converting the logical variable directly to a numeric variable.
+
 ## Problem 2
+
+data("penguins", package = "palmerpenguins")
